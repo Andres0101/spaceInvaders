@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364444D81FCC3B460039DDE6 /* shoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364444D71FCC3B460039DDE6 /* shoot.mp3 */; };
 		3667E4501FCC1A2400B25C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */; };
 		3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4511FCC1A2400B25C77 /* GameScene.sks */; };
 		3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4531FCC1A2400B25C77 /* Actions.sks */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		364444D71FCC3B460039DDE6 /* shoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot.mp3; sourceTree = "<group>"; };
 		3667E44C1FCC1A2400B25C77 /* Space Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Invaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3667E4511FCC1A2400B25C77 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				3667E4531FCC1A2400B25C77 /* Actions.sks */,
 				3667E4551FCC1A2400B25C77 /* GameScene.swift */,
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
+				364444D71FCC3B460039DDE6 /* shoot.mp3 */,
 				3667E4591FCC1A2400B25C77 /* Main.storyboard */,
 				3667E45C1FCC1A2400B25C77 /* Assets.xcassets */,
 				3667E45E1FCC1A2400B25C77 /* LaunchScreen.storyboard */,
@@ -245,6 +248,7 @@
 				3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */,
 				3667E45D1FCC1A2400B25C77 /* Assets.xcassets in Resources */,
 				3667E4601FCC1A2400B25C77 /* LaunchScreen.storyboard in Resources */,
+				364444D81FCC3B460039DDE6 /* shoot.mp3 in Resources */,
 				3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
