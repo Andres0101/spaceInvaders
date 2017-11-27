@@ -15,6 +15,13 @@ class GameScene: SKScene {
     let shootSound = SKAction.playSoundFileNamed("shoot.mp3", waitForCompletion: false)
     var gameArea: CGRect
     
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
+    
     override init(size: CGSize) {
         let maxAspectRatio: CGFloat = 16.0/9.0
         let areaWidth = size.height / maxAspectRatio
@@ -39,6 +46,16 @@ class GameScene: SKScene {
         player.position = CGPoint(x: self.size.width/2, y: self.size.height * 0.2)
         player.zPosition = 2
         self.addChild(player)
+        
+        startNewLevel()
+    }
+    
+    func startNewLevel() {
+        let create = SKAction.run(enemy)
+        let waitToCreate = SKAction.wait(forDuration: 1)
+        let createSequence = SKAction.sequence([create, waitToCreate])
+        let createAlways = SKAction.repeatForever(createSequence)
+        self.run(createAlways)
     }
     
     func shoot() {
@@ -53,6 +70,33 @@ class GameScene: SKScene {
         
         let bulletSequence = SKAction.sequence([shootSound, moveBullet, deleteBullet])
         bullet.run(bulletSequence)
+    }
+    
+    func enemy() {
+        let xStart = random(min: gameArea.minX, max: gameArea.maxX)
+        let xEnd = random(min: gameArea.minX, max: gameArea.maxX)
+        
+        let startPoint = CGPoint(x: xStart, y: self.size.height * 1.2)
+        let endPoint = CGPoint(x: xEnd, y: -self.size.height * 0.2)
+        
+        //Creation
+        let enemy = SKSpriteNode(imageNamed: "enemy")
+        enemy.setScale(1)
+        enemy.position = startPoint
+        enemy.zPosition = 2
+        self.addChild(enemy)
+        
+        //Movement
+        let moveEnemy = SKAction.move(to: endPoint, duration: 1.5)
+        let deleteEnemy = SKAction.removeFromParent()
+        let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy])
+        enemy.run(enemySequence)
+        
+        //Rotation
+        let dx = endPoint.x - startPoint.x
+        let dy = endPoint.y - startPoint.y
+        let amountToRotate = atan2(dy, dx)
+        enemy.zRotation = amountToRotate
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
