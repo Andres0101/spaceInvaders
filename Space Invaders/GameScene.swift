@@ -9,11 +9,19 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let player = SKSpriteNode(imageNamed: "player")
     let shootSound = SKAction.playSoundFileNamed("shoot.mp3", waitForCompletion: false)
     var gameArea: CGRect
+    
+    //Creation des categories
+    struct physicsCategories {
+        static let None: UInt32 = 0
+        static let Player: UInt32 = 0b1 //1
+        static let Bullet: UInt32 = 0b10 //2
+        static let Enemy: UInt32 = 0b100 //4
+    }
     
     func random() -> CGFloat {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
@@ -36,15 +44,23 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        self.physicsWorld.contactDelegate = self
+        
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)
         
+        //Définir les propriétés du joueur (position, catégorie, collision, contact, etc ...)
         player.setScale(1)
         player.position = CGPoint(x: self.size.width/2, y: self.size.height * 0.2)
         player.zPosition = 2
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody!.affectedByGravity = false
+        player.physicsBody!.categoryBitMask = physicsCategories.Player
+        player.physicsBody!.collisionBitMask = physicsCategories.None
+        player.physicsBody!.contactTestBitMask = physicsCategories.Enemy
         self.addChild(player)
         
         startNewLevel()
@@ -59,10 +75,16 @@ class GameScene: SKScene {
     }
     
     func shoot() {
+        //Créer une balle et définir ses propriétés (position, catégorie, collision, contact, etc ...)
         let bullet = SKSpriteNode(imageNamed: "bullet")
         bullet.setScale(1)
         bullet.position = player.position
         bullet.zPosition = 1
+        bullet.physicsBody = SKPhysicsBody(rectangleOf: bullet.size)
+        bullet.physicsBody!.affectedByGravity = false
+        bullet.physicsBody!.categoryBitMask = physicsCategories.Bullet
+        bullet.physicsBody!.collisionBitMask = physicsCategories.None
+        bullet.physicsBody!.contactTestBitMask = physicsCategories.Enemy
         self.addChild(bullet)
         
         let moveBullet = SKAction.moveTo(y: self.size.height + bullet.size.height, duration: 1)
@@ -79,11 +101,16 @@ class GameScene: SKScene {
         let startPoint = CGPoint(x: xStart, y: self.size.height * 1.2)
         let endPoint = CGPoint(x: xEnd, y: -self.size.height * 0.2)
         
-        //Creation
+        //Créer un ennemi et ses propiétés(position, catégorie, collision, contact, etc...)
         let enemy = SKSpriteNode(imageNamed: "enemy")
         enemy.setScale(1)
         enemy.position = startPoint
         enemy.zPosition = 2
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
+        enemy.physicsBody!.affectedByGravity = false
+        enemy.physicsBody!.categoryBitMask = physicsCategories.Enemy
+        enemy.physicsBody!.collisionBitMask = physicsCategories.None
+        enemy.physicsBody!.contactTestBitMask = physicsCategories.Player | physicsCategories.Bullet
         self.addChild(enemy)
         
         //Movement
