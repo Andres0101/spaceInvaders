@@ -12,7 +12,8 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let player = SKSpriteNode(imageNamed: "player")
-    let shootSound = SKAction.playSoundFileNamed("shoot.mp3", waitForCompletion: false)
+    let shootSound = SKAction.playSoundFileNamed("shoot.wav", waitForCompletion: false)
+    let explisionSound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
     var gameArea: CGRect
     
     //Creation des categories
@@ -64,6 +65,60 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player)
         
         startNewLevel()
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        //Créer des variables pour valider collision entre eux
+        var body1 = SKPhysicsBody()
+        var body2 = SKPhysicsBody()
+        
+        //Condition pour avoir toujours en body1 la catégorie la plus petite et en body2 la plus grande
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            body1 = contact.bodyA
+            body2 = contact.bodyB
+        } else {
+            body1 = contact.bodyB
+            body2 = contact.bodyA
+        }
+        
+        //Conditions pour savoir quels objects ont pris contact
+        if body1.categoryBitMask == physicsCategories.Player && body2.categoryBitMask == physicsCategories.Enemy {
+            //Si le joueur a frappé l'ennemi
+            showExplotion(position: body1.node!.position) //Montrer l'explosion dans la position du joueur
+            showExplotion(position: body2.node!.position) //Montrer l'explosion dans la position de l'ennemi
+            
+            body1.node?.removeFromParent() //Effacer le joueur
+            body2.node?.removeFromParent() //Effacer l'ennemi
+        } else if body1.categoryBitMask == physicsCategories.Bullet && body2.categoryBitMask == physicsCategories.Enemy {
+            //Si la balle a frappé l'ennemi
+            if  body2.node != nil {
+                //Si l'ennemi est dans l'ecran
+                if  body2.node!.position.y < self.size.height {
+                    showExplotion(position: body2.node!.position) //Montrer l'explosion dans la position de l'ennemi
+                } else {
+                    return
+                }
+            }
+            
+            body1.node?.removeFromParent() //Effacer la balle
+            body2.node?.removeFromParent() //Effacer l'ennemi
+        }
+    }
+    
+    //Fonction qui montre l'explosion
+    func showExplotion(position: CGPoint) {
+        let explosion = SKSpriteNode(imageNamed: "explosion")
+        explosion.position = position
+        explosion.zPosition = 3
+        explosion.setScale(0)
+        self.addChild(explosion)
+        
+        let scaleIn = SKAction.scale(to: 1, duration: 0.1)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.1)
+        let remove = SKAction.removeFromParent()
+        
+        let explosionSequence = SKAction.sequence([explisionSound, scaleIn, fadeOut, remove])
+        explosion.run(explosionSequence)
     }
     
     func startNewLevel() {

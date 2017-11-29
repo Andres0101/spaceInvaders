@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		364444D81FCC3B460039DDE6 /* shoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364444D71FCC3B460039DDE6 /* shoot.mp3 */; };
 		3667E4501FCC1A2400B25C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */; };
 		3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4511FCC1A2400B25C77 /* GameScene.sks */; };
 		3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4531FCC1A2400B25C77 /* Actions.sks */; };
@@ -18,6 +17,8 @@
 		3667E4601FCC1A2400B25C77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3667E45E1FCC1A2400B25C77 /* LaunchScreen.storyboard */; };
 		3667E46B1FCC1A2400B25C77 /* Space_InvadersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E46A1FCC1A2400B25C77 /* Space_InvadersTests.swift */; };
 		3667E4761FCC1A2400B25C77 /* Space_InvadersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E4751FCC1A2400B25C77 /* Space_InvadersUITests.swift */; };
+		36792E2A1FCF1E0E00F6E64F /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36792E291FCF1E0D00F6E64F /* shoot.wav */; };
+		36792E2C1FCF20E200F6E64F /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36792E2B1FCF20E200F6E64F /* explosion.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		364444D71FCC3B460039DDE6 /* shoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot.mp3; sourceTree = "<group>"; };
 		3667E44C1FCC1A2400B25C77 /* Space Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Invaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3667E4511FCC1A2400B25C77 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -55,6 +55,8 @@
 		3667E4711FCC1A2400B25C77 /* Space InvadersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space InvadersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3667E4751FCC1A2400B25C77 /* Space_InvadersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_InvadersUITests.swift; sourceTree = "<group>"; };
 		3667E4771FCC1A2400B25C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36792E291FCF1E0D00F6E64F /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shoot.wav; sourceTree = "<group>"; };
+		36792E2B1FCF20E200F6E64F /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,8 @@
 				3667E4531FCC1A2400B25C77 /* Actions.sks */,
 				3667E4551FCC1A2400B25C77 /* GameScene.swift */,
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
-				364444D71FCC3B460039DDE6 /* shoot.mp3 */,
+				36792E2B1FCF20E200F6E64F /* explosion.wav */,
+				36792E291FCF1E0D00F6E64F /* shoot.wav */,
 				3667E4591FCC1A2400B25C77 /* Main.storyboard */,
 				3667E45C1FCC1A2400B25C77 /* Assets.xcassets */,
 				3667E45E1FCC1A2400B25C77 /* LaunchScreen.storyboard */,
@@ -246,9 +249,10 @@
 			files = (
 				3667E45B1FCC1A2400B25C77 /* Main.storyboard in Resources */,
 				3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */,
+				36792E2C1FCF20E200F6E64F /* explosion.wav in Resources */,
+				36792E2A1FCF1E0E00F6E64F /* shoot.wav in Resources */,
 				3667E45D1FCC1A2400B25C77 /* Assets.xcassets in Resources */,
 				3667E4601FCC1A2400B25C77 /* LaunchScreen.storyboard in Resources */,
-				364444D81FCC3B460039DDE6 /* shoot.mp3 in Resources */,
 				3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
