@@ -22,6 +22,8 @@
 		3680F4DE1FD17D1000613739 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */; };
 		3680F4DF1FD17D1000613739 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */; };
 		3680F4E31FD19FE300613739 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680F4E21FD19FE300613739 /* GameOverScene.swift */; };
+		3680F4E51FD1A46000613739 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E41FD1A46000613739 /* Roboto-Black.ttf */; };
+		3680F4E71FD1A90F00613739 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		3680F4E21FD19FE300613739 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		3680F4E41FD1A46000613739 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 		3680F4E01FD17D1400613739 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */,
+				3680F4E41FD1A46000613739 /* Roboto-Black.ttf */,
 				3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */,
 				3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */,
 			);
@@ -279,6 +285,8 @@
 				36792E2A1FCF1E0E00F6E64F /* shoot.wav in Resources */,
 				3667E45D1FCC1A2400B25C77 /* Assets.xcassets in Resources */,
 				3680F4DF1FD17D1000613739 /* Roboto-Regular.ttf in Resources */,
+				3680F4E51FD1A46000613739 /* Roboto-Black.ttf in Resources */,
+				3680F4E71FD1A90F00613739 /* Roboto-Medium.ttf in Resources */,
 				3667E4601FCC1A2400B25C77 /* LaunchScreen.storyboard in Resources */,
 				3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */,
 			);

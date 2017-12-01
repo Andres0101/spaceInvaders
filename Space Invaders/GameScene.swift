@@ -9,12 +9,13 @@
 import SpriteKit
 import GameplayKit
 
+var score = 0
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //Variables globales
     var level = 0
     
-    var score = 0
     let scoreText = SKLabelNode(fontNamed: "Roboto Regular")
     
     var lives = 3
@@ -66,6 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //===================================== Fonction initial ====================================
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        score = 0
         
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
