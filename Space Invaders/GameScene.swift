@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var score = 0
+    var level = 0
     let scoreText = SKLabelNode(fontNamed: "Roboto Regular")
     
     let player = SKSpriteNode(imageNamed: "player")
@@ -82,6 +83,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addScore() {
         score += 1
         scoreText.text = "Score: \(score)"
+        
+        if  score == 10 || score == 25 || score == 50 {
+            startNewLevel()
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -140,11 +145,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func startNewLevel() {
+        var levelTime = TimeInterval()
+        level += 1
+        
+        if  self.action(forKey: "createEnemy") != nil {
+            self.removeAction(forKey: "createEnemy")
+        }
+        
+        switch level {
+            case 1:
+                levelTime = 1.2
+            case 2:
+                levelTime = 1
+            case 3:
+                levelTime = 0.8
+            case 4:
+                levelTime = 0.4
+            default:
+                levelTime = 0.4
+                print("Can not find level info")
+        }
+        
         let create = SKAction.run(enemy)
-        let waitToCreate = SKAction.wait(forDuration: 1)
-        let createSequence = SKAction.sequence([create, waitToCreate])
+        let waitToCreate = SKAction.wait(forDuration: levelTime)
+        let createSequence = SKAction.sequence([waitToCreate, create])
         let createAlways = SKAction.repeatForever(createSequence)
-        self.run(createAlways)
+        self.run(createAlways, withKey: "createEnemy")
     }
     
     func shoot() {
