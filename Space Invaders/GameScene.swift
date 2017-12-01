@@ -25,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let explisionSound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
     var gameArea: CGRect
     
-    //Creation des categories
+    //================================= Creation des categories =================================
     struct physicsCategories {
         static let None: UInt32 = 0
         static let Player: UInt32 = 0b1 //1
@@ -33,6 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let Enemy: UInt32 = 0b100 //4
     }
     
+    //================= Fonction pour la position de départ random de l'ennemi ==================
     func random() -> CGFloat {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
@@ -40,6 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return random() * (max - min) + min
     }
     
+    //============================= Fonction qui crée le game area ==============================
     override init(size: CGSize) {
         let maxAspectRatio: CGFloat = 16.0/9.0
         let areaWidth = size.height / maxAspectRatio
@@ -48,11 +50,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         super.init(size: size)
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //===================================== Fonction initial ====================================
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
@@ -94,6 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         startNewLevel()
     }
     
+    //=============================== Fonction qui diminue la vie ===============================
     func loseLife() {
         lives -= 1
         livesText.text = "Lives: \(lives)"
@@ -104,6 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesText.run(scaleSquence)
     }
     
+    //============================== Fonction qui augmente le score =============================
     func addScore() {
         score += 1
         scoreText.text = "Score: \(score)"
@@ -113,6 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //=================== Fonction qui valide la collision entre les éléments ===================
     func didBegin(_ contact: SKPhysicsContact) {
         //Créer des variables pour valider collision entre eux
         var body1 = SKPhysicsBody()
@@ -152,7 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    //Fonction qui montre l'explosion
+    //============================= Fonction qui montre l'explosion =============================
     func showExplotion(position: CGPoint) {
         let explosion = SKSpriteNode(imageNamed: "explosion")
         explosion.position = position
@@ -168,6 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.run(explosionSequence)
     }
     
+    //====================== Fonction qui augmente la difficulté du niveau ======================
     func startNewLevel() {
         var levelTime = TimeInterval()
         level += 1
@@ -197,6 +203,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.run(createAlways, withKey: "createEnemy")
     }
     
+    //============================== Fonction qui montre la balle ===============================
     func shoot() {
         //Créer une balle et définir ses propriétés (position, catégorie, collision, contact, etc ...)
         let bullet = SKSpriteNode(imageNamed: "bullet")
@@ -217,6 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bullet.run(bulletSequence)
     }
     
+    //============================== Fonction qui montre l'ennemie ==============================
     func enemy() {
         let xStart = random(min: gameArea.minX, max: gameArea.maxX)
         let xEnd = random(min: gameArea.minX, max: gameArea.maxX)
