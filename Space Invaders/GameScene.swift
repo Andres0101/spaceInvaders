@@ -11,6 +11,9 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var score = 0
+    let scoreText = SKLabelNode(fontNamed: "Roboto Regular")
+    
     let player = SKSpriteNode(imageNamed: "player")
     let shootSound = SKAction.playSoundFileNamed("shoot.wav", waitForCompletion: false)
     let explisionSound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
@@ -64,7 +67,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody!.contactTestBitMask = physicsCategories.Enemy
         self.addChild(player)
         
+        //Définir les propiétés du text "Score" (font family, size, position, etc...)
+        scoreText.text = "Score: 0"
+        scoreText.fontSize = 70
+        scoreText.fontColor = SKColor.white
+        scoreText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+        scoreText.position = CGPoint(x: self.size.width * 0.15, y: self.size.height * 0.9)
+        scoreText.zPosition = 20
+        self.addChild(scoreText)
+        
         startNewLevel()
+    }
+    
+    func addScore() {
+        score += 1
+        scoreText.text = "Score: \(score)"
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -95,6 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //Si l'ennemi est dans l'ecran
                 if  body2.node!.position.y < self.size.height {
                     showExplotion(position: body2.node!.position) //Montrer l'explosion dans la position de l'ennemi
+                    addScore() //Augmenter le score
                 } else {
                     return
                 }
