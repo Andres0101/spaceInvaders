@@ -25,6 +25,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let explisionSound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
     var gameArea: CGRect
     
+    //États de jeu
+    enum gameState {
+        case beforeGame
+        case duringGame
+        case afterGame
+    }
+    
+    var currentGameState = gameState.duringGame
+    
     //================================= Creation des categories =================================
     struct physicsCategories {
         static let None: UInt32 = 0
@@ -134,6 +143,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let scaleDown = SKAction.scale(to: 1, duration: 0.2)
         let scaleSquence = SKAction.sequence([scaleUp, scaleDown])
         livesText.run(scaleSquence)
+        
+        if  lives == 0 {
+            gameOver()
+        }
     }
     
     //============================== Fonction qui augmente le score =============================
@@ -143,6 +156,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if  score == 10 || score == 25 || score == 50 {
             startNewLevel()
+        }
+    }
+    
+    //==================================== Fonction GameOver ====================================
+    func gameOver() {
+        currentGameState = gameState.afterGame
+        self.removeAllActions()
+        
+        //Obtenir bullet de sa fonction
+        self.enumerateChildNodes(withName: "Bullet") {
+            bullet, stop in
+            bullet.removeAllActions()
+        }
+        
+        //Obtenir enemy de sa fonction
+        self.enumerateChildNodes(withName: "Enemy") {
+            enemy, stop in
+            enemy.removeAllActions()
         }
     }
     
@@ -169,6 +200,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             body1.node?.removeFromParent() //Effacer le joueur
             body2.node?.removeFromParent() //Effacer l'ennemi
+            
+            gameOver()
         } else if body1.categoryBitMask == physicsCategories.Bullet && body2.categoryBitMask == physicsCategories.Enemy {
             //Si la balle a frappé l'ennemi
             if  body2.node != nil {
@@ -206,6 +239,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func shoot() {
         //Créer une balle et définir ses propriétés (position, catégorie, collision, contact, etc ...)
         let bullet = SKSpriteNode(imageNamed: "bullet")
+        bullet.name = "Bullet"
         bullet.setScale(1)
         bullet.position = player.position
         bullet.zPosition = 1
@@ -233,6 +267,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Créer un ennemi et ses propiétés(position, catégorie, collision, contact, etc...)
         let enemy = SKSpriteNode(imageNamed: "enemy")
+        enemy.name = "Enemy"
         enemy.setScale(1)
         enemy.position = startPoint
         enemy.zPosition = 2
@@ -248,7 +283,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let deleteEnemy = SKAction.removeFromParent()
         let loseLifeAction = SKAction.run(loseLife) //Joueur perd une vie
         let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy, loseLifeAction])
-        enemy.run(enemySequence)
+        
+        if  currentGameState == gameState.duringGame {
+            enemy.run(enemySequence)
+        }
         
         //Rotation
         let dx = endPoint.x - startPoint.x
@@ -258,7 +296,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        shoot()
+        //On n'utilise les balles que si le jeu est "active"
+        if  currentGameState == gameState.duringGame {
+            shoot()
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -268,7 +309,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let amountDragged = currentTouch.x - previousTouch.x
             
-            player.position.x += amountDragged
+            //Le joueur ne peut se déplacer que si le jeu est "active"
+            if  currentGameState == gameState.duringGame {
+                player.position.x += amountDragged
+            }
             
             //Création des limites pour que le joueur ne quitte pas le gameArea
             if  player.position.x > (gameArea.maxX - player.size.width/2) {
