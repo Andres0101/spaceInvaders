@@ -116,8 +116,7 @@
 				3667E4531FCC1A2400B25C77 /* Actions.sks */,
 				3667E4551FCC1A2400B25C77 /* GameScene.swift */,
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
-				36792E2B1FCF20E200F6E64F /* explosion.wav */,
-				36792E291FCF1E0D00F6E64F /* shoot.wav */,
+				3680F4E11FD190CA00613739 /* SoundEffects */,
 				3680F4E01FD17D1400613739 /* Fonts */,
 				3667E4591FCC1A2400B25C77 /* Main.storyboard */,
 				3667E45C1FCC1A2400B25C77 /* Assets.xcassets */,
@@ -152,6 +151,15 @@
 				3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3680F4E11FD190CA00613739 /* SoundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				36792E2B1FCF20E200F6E64F /* explosion.wav */,
+				36792E291FCF1E0D00F6E64F /* shoot.wav */,
+			);
+			path = SoundEffects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
