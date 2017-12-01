@@ -96,6 +96,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         startNewLevel()
     }
     
+    //====================== Fonction qui augmente la difficulté du niveau ======================
+    func startNewLevel() {
+        var levelTime = TimeInterval()
+        level += 1
+        
+        if  self.action(forKey: "createEnemy") != nil {
+            self.removeAction(forKey: "createEnemy")
+        }
+        
+        switch level {
+            case 1:
+                levelTime = 1.2
+            case 2:
+                levelTime = 1
+            case 3:
+                levelTime = 0.8
+            case 4:
+                levelTime = 0.4
+            default:
+                levelTime = 0.4
+        }
+        
+        let create = SKAction.run(enemy)
+        let waitToCreate = SKAction.wait(forDuration: levelTime)
+        let createSequence = SKAction.sequence([waitToCreate, create])
+        let createAlways = SKAction.repeatForever(createSequence)
+        self.run(createAlways, withKey: "createEnemy")
+    }
+    
     //=============================== Fonction qui diminue la vie ===============================
     func loseLife() {
         lives -= 1
@@ -171,36 +200,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let explosionSequence = SKAction.sequence([explisionSound, scaleIn, fadeOut, remove])
         explosion.run(explosionSequence)
-    }
-    
-    //====================== Fonction qui augmente la difficulté du niveau ======================
-    func startNewLevel() {
-        var levelTime = TimeInterval()
-        level += 1
-        
-        if  self.action(forKey: "createEnemy") != nil {
-            self.removeAction(forKey: "createEnemy")
-        }
-        
-        switch level {
-            case 1:
-                levelTime = 1.2
-            case 2:
-                levelTime = 1
-            case 3:
-                levelTime = 0.8
-            case 4:
-                levelTime = 0.4
-            default:
-                levelTime = 0.4
-                print("Can not find level info")
-        }
-        
-        let create = SKAction.run(enemy)
-        let waitToCreate = SKAction.wait(forDuration: levelTime)
-        let createSequence = SKAction.sequence([waitToCreate, create])
-        let createAlways = SKAction.repeatForever(createSequence)
-        self.run(createAlways, withKey: "createEnemy")
     }
     
     //============================== Fonction qui montre la balle ===============================
