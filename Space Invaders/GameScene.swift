@@ -175,6 +175,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy, stop in
             enemy.removeAllActions()
         }
+        
+        //Appeler la méthode changeScene()
+        let changeSceneAction = SKAction.run(changeScene)
+        let waitChangeScene = SKAction.wait(forDuration: 0.5)
+        let changeSceneSequence = SKAction.sequence([waitChangeScene, changeSceneAction])
+        self.run(changeSceneSequence)
+    }
+    
+    //=============================== Fonction qui change la scènce =============================
+    func changeScene() {
+        let newScene = GameOverScene(size: self.size)
+        newScene.scaleMode = self.scaleMode
+        let transition = SKTransition.fade(withDuration: 0.5)
+        
+        self.view!.presentScene(newScene, transition: transition)
     }
     
     //=================== Fonction qui valide la collision entre les éléments ===================

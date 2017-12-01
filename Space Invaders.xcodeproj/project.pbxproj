@@ -21,6 +21,7 @@
 		36792E2C1FCF20E200F6E64F /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36792E2B1FCF20E200F6E64F /* explosion.wav */; };
 		3680F4DE1FD17D1000613739 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */; };
 		3680F4DF1FD17D1000613739 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */; };
+		3680F4E31FD19FE300613739 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680F4E21FD19FE300613739 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		36792E2B1FCF20E200F6E64F /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 		3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		3680F4E21FD19FE300613739 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				3667E4511FCC1A2400B25C77 /* GameScene.sks */,
 				3667E4531FCC1A2400B25C77 /* Actions.sks */,
 				3667E4551FCC1A2400B25C77 /* GameScene.swift */,
+				3680F4E21FD19FE300613739 /* GameOverScene.swift */,
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
 				3680F4E11FD190CA00613739 /* SoundEffects */,
 				3680F4E01FD17D1400613739 /* Fonts */,
@@ -304,6 +307,7 @@
 			files = (
 				3667E4561FCC1A2400B25C77 /* GameScene.swift in Sources */,
 				3667E4581FCC1A2400B25C77 /* GameViewController.swift in Sources */,
+				3680F4E31FD19FE300613739 /* GameOverScene.swift in Sources */,
 				3667E4501FCC1A2400B25C77 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
