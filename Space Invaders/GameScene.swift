@@ -11,9 +11,14 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var score = 0
+    //Variables globales
     var level = 0
+    
+    var score = 0
     let scoreText = SKLabelNode(fontNamed: "Roboto Regular")
+    
+    var lives = 3
+    let livesText = SKLabelNode(fontNamed: "Roboto Regular")
     
     let player = SKSpriteNode(imageNamed: "player")
     let shootSound = SKAction.playSoundFileNamed("shoot.wav", waitForCompletion: false)
@@ -77,7 +82,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreText.zPosition = 20
         self.addChild(scoreText)
         
+        //Définir les propiétés du text "Life" (font family, size, position, etc...)
+        livesText.text = "Lives: 3"
+        livesText.fontSize = 70
+        livesText.fontColor = SKColor.white
+        livesText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+        livesText.position = CGPoint(x: self.size.width * 0.85, y: self.size.height * 0.9)
+        livesText.zPosition = 20
+        self.addChild(livesText)
+        
         startNewLevel()
+    }
+    
+    func loseLife() {
+        lives -= 1
+        livesText.text = "Lives: \(lives)"
+        
+        let scaleUp = SKAction.scale(to: 1.5, duration: 0.2)
+        let scaleDown = SKAction.scale(to: 1, duration: 0.2)
+        let scaleSquence = SKAction.sequence([scaleUp, scaleDown])
+        livesText.run(scaleSquence)
     }
     
     func addScore() {
@@ -212,10 +236,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody!.contactTestBitMask = physicsCategories.Player | physicsCategories.Bullet
         self.addChild(enemy)
         
-        //Movement
+        //Movement & si l'ennemie quitte l'écran, le joueur perd une vie
         let moveEnemy = SKAction.move(to: endPoint, duration: 1.5)
         let deleteEnemy = SKAction.removeFromParent()
-        let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy])
+        let loseLifeAction = SKAction.run(loseLife) //Joueur perd une vie
+        let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy, loseLifeAction])
         enemy.run(enemySequence)
         
         //Rotation
