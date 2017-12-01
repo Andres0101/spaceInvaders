@@ -19,6 +19,8 @@
 		3667E4761FCC1A2400B25C77 /* Space_InvadersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E4751FCC1A2400B25C77 /* Space_InvadersUITests.swift */; };
 		36792E2A1FCF1E0E00F6E64F /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36792E291FCF1E0D00F6E64F /* shoot.wav */; };
 		36792E2C1FCF20E200F6E64F /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36792E2B1FCF20E200F6E64F /* explosion.wav */; };
+		3680F4DE1FD17D1000613739 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */; };
+		3680F4DF1FD17D1000613739 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		3667E4771FCC1A2400B25C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36792E291FCF1E0D00F6E64F /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shoot.wav; sourceTree = "<group>"; };
 		36792E2B1FCF20E200F6E64F /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
 				36792E2B1FCF20E200F6E64F /* explosion.wav */,
 				36792E291FCF1E0D00F6E64F /* shoot.wav */,
+				3680F4E01FD17D1400613739 /* Fonts */,
 				3667E4591FCC1A2400B25C77 /* Main.storyboard */,
 				3667E45C1FCC1A2400B25C77 /* Assets.xcassets */,
 				3667E45E1FCC1A2400B25C77 /* LaunchScreen.storyboard */,
@@ -138,6 +143,15 @@
 				3667E4771FCC1A2400B25C77 /* Info.plist */,
 			);
 			path = "Space InvadersUITests";
+			sourceTree = "<group>";
+		};
+		3680F4E01FD17D1400613739 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */,
+				3680F4DC1FD17D0F00613739 /* Roboto-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,11 +261,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3680F4DE1FD17D1000613739 /* Roboto-Thin.ttf in Resources */,
 				3667E45B1FCC1A2400B25C77 /* Main.storyboard in Resources */,
 				3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */,
 				36792E2C1FCF20E200F6E64F /* explosion.wav in Resources */,
 				36792E2A1FCF1E0E00F6E64F /* shoot.wav in Resources */,
 				3667E45D1FCC1A2400B25C77 /* Assets.xcassets in Resources */,
+				3680F4DF1FD17D1000613739 /* Roboto-Regular.ttf in Resources */,
 				3667E4601FCC1A2400B25C77 /* LaunchScreen.storyboard in Resources */,
 				3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */,
 			);
