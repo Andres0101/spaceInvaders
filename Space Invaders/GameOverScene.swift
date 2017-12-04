@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
+    let restartText = SKLabelNode(fontNamed: "Roboto Regular")
+    
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
@@ -53,12 +55,26 @@ class GameOverScene: SKScene {
         self.addChild(highScoreText)
         
         //Label "Restart"
-        let restartText = SKLabelNode(fontNamed: "Roboto Regular")
         restartText.text = "Restart"
         restartText.fontSize = 100
         restartText.fontColor = SKColor.white
         restartText.position = CGPoint(x: self.size.width/2, y: self.size.height * 0.3)
         restartText.zPosition = 1
         self.addChild(restartText)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch: AnyObject in touches {
+            let currentTouch = touch.location(in: self)
+            
+            //Retour à gameScene
+            if  restartText.contains(currentTouch) {
+                let changeTo = GameScene(size: self.size)
+                changeTo.scaleMode = self.scaleMode
+                let transition = SKTransition.fade(withDuration: 0.5)
+                
+                self.view!.presentScene(changeTo, transition: transition)
+            }
+        }
     }
 }
