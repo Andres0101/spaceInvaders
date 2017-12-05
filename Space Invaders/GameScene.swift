@@ -123,8 +123,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //FadeIn transition
         let fadeInStartLabel = SKAction.fadeIn(withDuration: 0.3)
         startLabel.run(fadeInStartLabel)
+    }
+    
+    //=============================== Fonction qui démarre le jeu ===============================
+    func startGame() {
+        currentGameState = gameState.duringGame
         
-        startNewLevel()
+        //Animation pour le label "Tap to begin"
+        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+        let delete = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([fadeOut, delete])
+        startLabel.run(deleteSequence)
+        
+        //Animation pour le joueur
+        let moveShip = SKAction.moveTo(y: self.size.height * 0.2, duration: 0.5)
+        let startLevelAction = SKAction.run(startNewLevel)
+        let startGameSequence = SKAction.sequence([moveShip, startLevelAction])
+        player.run(startGameSequence)
     }
     
     //====================== Fonction qui augmente la difficulté du niveau ======================
@@ -333,8 +348,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //On n'utilise les balles que si le jeu est "active"
-        if  currentGameState == gameState.duringGame {
+        //On ne peut jouer que si le jeu est dans l'écran d'accueil
+        if  currentGameState == gameState.beforeGame {
+            startGame()
+        } else if  currentGameState == gameState.duringGame { //On n'utilise les balles que si le jeu est "active"
             shoot()
         }
     }
