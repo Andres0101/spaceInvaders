@@ -14,7 +14,7 @@ class GameOverScene: SKScene {
     let restartText = SKLabelNode(fontNamed: "Roboto Regular")
     
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "backgroundEarth")
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)

@@ -71,11 +71,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         score = 0
         
-        let background = SKSpriteNode(imageNamed: "background")
-        background.size = self.size
-        background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        background.zPosition = 0
-        self.addChild(background)
+        let backgroundEarth = SKSpriteNode(imageNamed: "backgroundEarth")
+        backgroundEarth.size = self.size
+        backgroundEarth.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        backgroundEarth.zPosition = 0
+        self.addChild(backgroundEarth)
+        
+        //Effet du movement du background
+        for i in 0...1 {
+            let background = SKSpriteNode(imageNamed: "backgroundStars")
+            background.name = "Background"
+            background.size = self.size
+            background.anchorPoint = CGPoint(x: 0.5, y: 0)
+            background.position = CGPoint(x: self.size.width/2, y: self.size.height * CGFloat(i))
+            background.zPosition = 0
+            self.addChild(background)
+        }
         
         //Définir les propriétés du joueur (position, catégorie, collision, contact, etc ...)
         player.setScale(1)
@@ -374,6 +385,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             if  player.position.x < (gameArea.minX + player.size.width/2) {
                 player.position.x = gameArea.minX + player.size.width/2
+            }
+        }
+    }
+    
+    //======= Fonction qui permet de déplacer le background verticalement chaque seconde ========
+    var lastUpdateTime: TimeInterval = 0
+    var detlaFrameTime: TimeInterval = 0
+    var amountToMove: CGFloat = 600.0
+    
+    override func update(_ currentTime: TimeInterval) {
+        if lastUpdateTime == 0 {
+            lastUpdateTime = currentTime
+        } else {
+            detlaFrameTime = currentTime - lastUpdateTime
+            lastUpdateTime = currentTime
+        }
+        
+        let amountToMoveBackground = amountToMove * CGFloat(detlaFrameTime)
+        self.enumerateChildNodes(withName: "Background") {
+            background, stop in
+            
+            if  self.currentGameState == gameState.duringGame {
+                background.position.y -= amountToMoveBackground
+            }
+            
+            if background.position.y < -self.size.height {
+                background.position.y += self.size.height * 2
             }
         }
     }
