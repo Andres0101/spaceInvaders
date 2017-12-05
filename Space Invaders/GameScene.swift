@@ -21,6 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lives = 3
     let livesText = SKLabelNode(fontNamed: "Roboto Regular")
     
+    let startLabel = SKLabelNode(fontNamed: "Roboto Black")
+    
     let player = SKSpriteNode(imageNamed: "player")
     let shootSound = SKAction.playSoundFileNamed("shoot.wav", waitForCompletion: false)
     let explisionSound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
@@ -33,7 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case afterGame
     }
     
-    var currentGameState = gameState.duringGame
+    var currentGameState = gameState.beforeGame
     
     //================================= Creation des categories =================================
     struct physicsCategories {
@@ -77,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Définir les propriétés du joueur (position, catégorie, collision, contact, etc ...)
         player.setScale(1)
-        player.position = CGPoint(x: self.size.width/2, y: self.size.height * 0.2)
+        player.position = CGPoint(x: self.size.width/2, y: 0 - self.size.height)
         player.zPosition = 2
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody!.affectedByGravity = false
@@ -91,7 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreText.fontSize = 70
         scoreText.fontColor = SKColor.white
         scoreText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
-        scoreText.position = CGPoint(x: self.size.width * 0.15, y: self.size.height * 0.9)
+        scoreText.position = CGPoint(x: self.size.width * 0.15, y: self.size.height + scoreText.frame.size.height)
         scoreText.zPosition = 20
         self.addChild(scoreText)
         
@@ -100,9 +102,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesText.fontSize = 70
         livesText.fontColor = SKColor.white
         livesText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
-        livesText.position = CGPoint(x: self.size.width * 0.85, y: self.size.height * 0.9)
+        livesText.position = CGPoint(x: self.size.width * 0.85, y: self.size.height + livesText.frame.size.height)
         livesText.zPosition = 20
         self.addChild(livesText)
+        
+        //Déplacement du score label & life label
+        let moveToScreen = SKAction.moveTo(y: self.size.height * 0.9, duration: 0.3)
+        scoreText.run(moveToScreen)
+        livesText.run(moveToScreen)
+        
+        //Définir les propiétés du text "Tap to begin" (font family, size, position, etc...)
+        startLabel.text = "TAP TO BEGIN"
+        startLabel.fontSize = 100
+        startLabel.fontColor = SKColor.white
+        startLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        startLabel.zPosition = 1
+        startLabel.alpha = 0
+        self.addChild(startLabel)
+        
+        //FadeIn transition
+        let fadeInStartLabel = SKAction.fadeIn(withDuration: 0.3)
+        startLabel.run(fadeInStartLabel)
         
         startNewLevel()
     }
