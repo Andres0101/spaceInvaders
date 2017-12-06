@@ -24,6 +24,7 @@
 		3680F4E31FD19FE300613739 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680F4E21FD19FE300613739 /* GameOverScene.swift */; };
 		3680F4E51FD1A46000613739 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E41FD1A46000613739 /* Roboto-Black.ttf */; };
 		3680F4E71FD1A90F00613739 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */; };
+		368259D61FD8127B008F05BC /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368259D51FD8127B008F05BC /* MainMenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		3680F4E21FD19FE300613739 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		3680F4E41FD1A46000613739 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		368259D51FD8127B008F05BC /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				3667E4511FCC1A2400B25C77 /* GameScene.sks */,
 				3667E4531FCC1A2400B25C77 /* Actions.sks */,
 				3667E4551FCC1A2400B25C77 /* GameScene.swift */,
+				368259D51FD8127B008F05BC /* MainMenuScene.swift */,
 				3680F4E21FD19FE300613739 /* GameOverScene.swift */,
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
 				3680F4E11FD190CA00613739 /* SoundEffects */,
@@ -313,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368259D61FD8127B008F05BC /* MainMenuScene.swift in Sources */,
 				3667E4561FCC1A2400B25C77 /* GameScene.swift in Sources */,
 				3667E4581FCC1A2400B25C77 /* GameViewController.swift in Sources */,
 				3680F4E31FD19FE300613739 /* GameOverScene.swift in Sources */,
