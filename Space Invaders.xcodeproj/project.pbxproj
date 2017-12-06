@@ -25,6 +25,7 @@
 		3680F4E51FD1A46000613739 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E41FD1A46000613739 /* Roboto-Black.ttf */; };
 		3680F4E71FD1A90F00613739 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */; };
 		368259D61FD8127B008F05BC /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368259D51FD8127B008F05BC /* MainMenuScene.swift */; };
+		368259D81FD8195C008F05BC /* backgroundAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 368259D71FD8195C008F05BC /* backgroundAudio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		3680F4E41FD1A46000613739 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		368259D51FD8127B008F05BC /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		368259D71FD8195C008F05BC /* backgroundAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundAudio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		3680F4E11FD190CA00613739 /* SoundEffects */ = {
 			isa = PBXGroup;
 			children = (
+				368259D71FD8195C008F05BC /* backgroundAudio.mp3 */,
 				36792E2B1FCF20E200F6E64F /* explosion.wav */,
 				36792E291FCF1E0D00F6E64F /* shoot.wav */,
 			);
@@ -284,6 +287,7 @@
 				3680F4DE1FD17D1000613739 /* Roboto-Thin.ttf in Resources */,
 				3667E45B1FCC1A2400B25C77 /* Main.storyboard in Resources */,
 				3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */,
+				368259D81FD8195C008F05BC /* backgroundAudio.mp3 in Resources */,
 				36792E2C1FCF20E200F6E64F /* explosion.wav in Resources */,
 				36792E2A1FCF1E0E00F6E64F /* shoot.wav in Resources */,
 				3667E45D1FCC1A2400B25C77 /* Assets.xcassets in Resources */,
