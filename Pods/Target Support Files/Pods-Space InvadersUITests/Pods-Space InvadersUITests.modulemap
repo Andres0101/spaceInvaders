@@ -1,0 +1,6 @@
+framework module Pods_Space_InvadersUITests {
+  umbrella header "Pods-Space InvadersUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

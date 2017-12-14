@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020D6AEB0B48750A18DC5E71 /* Pods_Space_InvadersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E02BF3535C62F71A23FF420 /* Pods_Space_InvadersTests.framework */; };
+		2A3951FD361F3B7053DDD199 /* Pods_Space_InvadersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BE2E2F89842633C8F36295 /* Pods_Space_InvadersUITests.framework */; };
+		361987431FE2A9B0000B44A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 361987421FE2A9B0000B44A3 /* GoogleService-Info.plist */; };
 		3667E4501FCC1A2400B25C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */; };
 		3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4511FCC1A2400B25C77 /* GameScene.sks */; };
 		3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4531FCC1A2400B25C77 /* Actions.sks */; };
@@ -26,6 +29,8 @@
 		3680F4E71FD1A90F00613739 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */; };
 		368259D61FD8127B008F05BC /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368259D51FD8127B008F05BC /* MainMenuScene.swift */; };
 		368259D81FD8195C008F05BC /* backgroundAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 368259D71FD8195C008F05BC /* backgroundAudio.mp3 */; };
+		36EE18731FE2AB99001CF0CF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE18721FE2AB99001CF0CF /* SignInViewController.swift */; };
+		C699156D6A10E3C950F67C6C /* Pods_Space_Invaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED2C0D5CAF8DEF1C1E0FAEF /* Pods_Space_Invaders.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ED2C0D5CAF8DEF1C1E0FAEF /* Pods_Space_Invaders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Invaders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		361987421FE2A9B0000B44A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3667E44C1FCC1A2400B25C77 /* Space Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Invaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3667E4511FCC1A2400B25C77 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -71,6 +78,17 @@
 		3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		368259D51FD8127B008F05BC /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		368259D71FD8195C008F05BC /* backgroundAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundAudio.mp3; sourceTree = "<group>"; };
+		36EE18711FE2AA45001CF0CF /* Space Invaders.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Space Invaders.entitlements"; sourceTree = "<group>"; };
+		36EE18721FE2AB99001CF0CF /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		36EE18741FE2ABED001CF0CF /* Space Invaders-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Invaders-Bridging-Header.h"; sourceTree = "<group>"; };
+		63BD464214D8453263A8080A /* Pods-Space Invaders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Invaders.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Space Invaders/Pods-Space Invaders.debug.xcconfig"; sourceTree = "<group>"; };
+		8CFFD64C59A6F741CE26C564 /* Pods-Space InvadersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space InvadersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Space InvadersTests/Pods-Space InvadersTests.release.xcconfig"; sourceTree = "<group>"; };
+		8E733AD83DE7DD9E621C4D0B /* Pods-Space InvadersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space InvadersUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Space InvadersUITests/Pods-Space InvadersUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E02BF3535C62F71A23FF420 /* Pods_Space_InvadersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_InvadersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE43918C651CB1FE8501E5FE /* Pods-Space Invaders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Invaders.release.xcconfig"; path = "Pods/Target Support Files/Pods-Space Invaders/Pods-Space Invaders.release.xcconfig"; sourceTree = "<group>"; };
+		DDE6414EC2E3DEAD0EFB8AE6 /* Pods-Space InvadersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space InvadersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Space InvadersTests/Pods-Space InvadersTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DE7953C885C17A1F3D2082EB /* Pods-Space InvadersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space InvadersUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Space InvadersUITests/Pods-Space InvadersUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E2BE2E2F89842633C8F36295 /* Pods_Space_InvadersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_InvadersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C699156D6A10E3C950F67C6C /* Pods_Space_Invaders.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020D6AEB0B48750A18DC5E71 /* Pods_Space_InvadersTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3951FD361F3B7053DDD199 /* Pods_Space_InvadersUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +126,8 @@
 				3667E4691FCC1A2400B25C77 /* Space InvadersTests */,
 				3667E4741FCC1A2400B25C77 /* Space InvadersUITests */,
 				3667E44D1FCC1A2400B25C77 /* Products */,
+				82DF890FA212939654C18759 /* Pods */,
+				B190C4CEA4059AF1DD7970A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +144,7 @@
 		3667E44E1FCC1A2400B25C77 /* Space Invaders */ = {
 			isa = PBXGroup;
 			children = (
+				36EE18711FE2AA45001CF0CF /* Space Invaders.entitlements */,
 				3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */,
 				3667E4511FCC1A2400B25C77 /* GameScene.sks */,
 				3667E4531FCC1A2400B25C77 /* Actions.sks */,
@@ -128,12 +152,15 @@
 				368259D51FD8127B008F05BC /* MainMenuScene.swift */,
 				3680F4E21FD19FE300613739 /* GameOverScene.swift */,
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
+				36EE18721FE2AB99001CF0CF /* SignInViewController.swift */,
 				3680F4E11FD190CA00613739 /* SoundEffects */,
 				3680F4E01FD17D1400613739 /* Fonts */,
 				3667E4591FCC1A2400B25C77 /* Main.storyboard */,
 				3667E45C1FCC1A2400B25C77 /* Assets.xcassets */,
 				3667E45E1FCC1A2400B25C77 /* LaunchScreen.storyboard */,
+				361987421FE2A9B0000B44A3 /* GoogleService-Info.plist */,
 				3667E4611FCC1A2400B25C77 /* Info.plist */,
+				36EE18741FE2ABED001CF0CF /* Space Invaders-Bridging-Header.h */,
 			);
 			path = "Space Invaders";
 			sourceTree = "<group>";
@@ -177,6 +204,29 @@
 			path = SoundEffects;
 			sourceTree = "<group>";
 		};
+		82DF890FA212939654C18759 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63BD464214D8453263A8080A /* Pods-Space Invaders.debug.xcconfig */,
+				BE43918C651CB1FE8501E5FE /* Pods-Space Invaders.release.xcconfig */,
+				DDE6414EC2E3DEAD0EFB8AE6 /* Pods-Space InvadersTests.debug.xcconfig */,
+				8CFFD64C59A6F741CE26C564 /* Pods-Space InvadersTests.release.xcconfig */,
+				8E733AD83DE7DD9E621C4D0B /* Pods-Space InvadersUITests.debug.xcconfig */,
+				DE7953C885C17A1F3D2082EB /* Pods-Space InvadersUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B190C4CEA4059AF1DD7970A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ED2C0D5CAF8DEF1C1E0FAEF /* Pods_Space_Invaders.framework */,
+				9E02BF3535C62F71A23FF420 /* Pods_Space_InvadersTests.framework */,
+				E2BE2E2F89842633C8F36295 /* Pods_Space_InvadersUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,9 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3667E47A1FCC1A2400B25C77 /* Build configuration list for PBXNativeTarget "Space Invaders" */;
 			buildPhases = (
+				EEFF4C1DE43CE409C369D535 /* [CP] Check Pods Manifest.lock */,
 				3667E4481FCC1A2400B25C77 /* Sources */,
 				3667E4491FCC1A2400B25C77 /* Frameworks */,
 				3667E44A1FCC1A2400B25C77 /* Resources */,
+				149B7401AE01C441945428D6 /* [CP] Embed Pods Frameworks */,
+				5CA5B6061E7323AED1AD6373 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3667E47D1FCC1A2400B25C77 /* Build configuration list for PBXNativeTarget "Space InvadersTests" */;
 			buildPhases = (
+				82976E38BA609A1248C0ECF6 /* [CP] Check Pods Manifest.lock */,
 				3667E4621FCC1A2400B25C77 /* Sources */,
 				3667E4631FCC1A2400B25C77 /* Frameworks */,
 				3667E4641FCC1A2400B25C77 /* Resources */,
+				975ED990748299CF3E9259E9 /* [CP] Embed Pods Frameworks */,
+				79B8952BC6AF6ABDA74B4585 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,9 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3667E4801FCC1A2400B25C77 /* Build configuration list for PBXNativeTarget "Space InvadersUITests" */;
 			buildPhases = (
+				3F6A9B6F4C43AC7A89A38FAC /* [CP] Check Pods Manifest.lock */,
 				3667E46D1FCC1A2400B25C77 /* Sources */,
 				3667E46E1FCC1A2400B25C77 /* Frameworks */,
 				3667E46F1FCC1A2400B25C77 /* Resources */,
+				BAEFC992377638E5A6596671 /* [CP] Embed Pods Frameworks */,
+				A6E8CB0EB147D5B9648B0F63 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,7 +304,13 @@
 				TargetAttributes = {
 					3667E44B1FCC1A2400B25C77 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					3667E4651FCC1A2400B25C77 = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -284,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				361987431FE2A9B0000B44A3 /* GoogleService-Info.plist in Resources */,
 				3680F4DE1FD17D1000613739 /* Roboto-Thin.ttf in Resources */,
 				3667E45B1FCC1A2400B25C77 /* Main.storyboard in Resources */,
 				3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */,
@@ -315,6 +381,167 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		149B7401AE01C441945428D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Space Invaders/Pods-Space Invaders-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Space Invaders/Pods-Space Invaders-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F6A9B6F4C43AC7A89A38FAC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Space InvadersUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CA5B6061E7323AED1AD6373 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Space Invaders/Pods-Space Invaders-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Space Invaders/Pods-Space Invaders-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79B8952BC6AF6ABDA74B4585 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Space InvadersTests/Pods-Space InvadersTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82976E38BA609A1248C0ECF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Space InvadersTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		975ED990748299CF3E9259E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Space InvadersTests/Pods-Space InvadersTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6E8CB0EB147D5B9648B0F63 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Space InvadersUITests/Pods-Space InvadersUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAEFC992377638E5A6596671 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Space InvadersUITests/Pods-Space InvadersUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEFF4C1DE43CE409C369D535 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Space Invaders-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3667E4481FCC1A2400B25C77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -322,6 +549,7 @@
 			files = (
 				368259D61FD8127B008F05BC /* MainMenuScene.swift in Sources */,
 				3667E4561FCC1A2400B25C77 /* GameScene.swift in Sources */,
+				36EE18731FE2AB99001CF0CF /* SignInViewController.swift in Sources */,
 				3667E4581FCC1A2400B25C77 /* GameViewController.swift in Sources */,
 				3680F4E31FD19FE300613739 /* GameOverScene.swift in Sources */,
 				3667E4501FCC1A2400B25C77 /* AppDelegate.swift in Sources */,
@@ -488,8 +716,11 @@
 		};
 		3667E47B1FCC1A2400B25C77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63BD464214D8453263A8080A /* Pods-Space Invaders.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Space Invaders/Space Invaders.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2FD62DG6U;
 				INFOPLIST_FILE = "Space Invaders/Info.plist";
@@ -497,6 +728,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AndresBonilla.Space-Invaders";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Space Invaders/Space Invaders-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -504,8 +737,11 @@
 		};
 		3667E47C1FCC1A2400B25C77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE43918C651CB1FE8501E5FE /* Pods-Space Invaders.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Space Invaders/Space Invaders.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2FD62DG6U;
 				INFOPLIST_FILE = "Space Invaders/Info.plist";
@@ -513,6 +749,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AndresBonilla.Space-Invaders";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Space Invaders/Space Invaders-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -520,6 +757,7 @@
 		};
 		3667E47E1FCC1A2400B25C77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE6414EC2E3DEAD0EFB8AE6 /* Pods-Space InvadersTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -537,6 +775,7 @@
 		};
 		3667E47F1FCC1A2400B25C77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CFFD64C59A6F741CE26C564 /* Pods-Space InvadersTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -554,6 +793,7 @@
 		};
 		3667E4811FCC1A2400B25C77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E733AD83DE7DD9E621C4D0B /* Pods-Space InvadersUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -570,6 +810,7 @@
 		};
 		3667E4821FCC1A2400B25C77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE7953C885C17A1F3D2082EB /* Pods-Space InvadersUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
