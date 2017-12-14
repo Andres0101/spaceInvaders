@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
         backgroundAudio.play()
         
         if let view = self.view as! SKView? {
-            let scene = MainMenuScene(size: CGSize(width: 1536, height: 2048))
+            let scene = GameScene(size: CGSize(width: 1536, height: 2048))
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
             

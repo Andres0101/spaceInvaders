@@ -27,7 +27,6 @@
 		3680F4E31FD19FE300613739 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680F4E21FD19FE300613739 /* GameOverScene.swift */; };
 		3680F4E51FD1A46000613739 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E41FD1A46000613739 /* Roboto-Black.ttf */; };
 		3680F4E71FD1A90F00613739 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */; };
-		368259D61FD8127B008F05BC /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368259D51FD8127B008F05BC /* MainMenuScene.swift */; };
 		368259D81FD8195C008F05BC /* backgroundAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 368259D71FD8195C008F05BC /* backgroundAudio.mp3 */; };
 		36EE18731FE2AB99001CF0CF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE18721FE2AB99001CF0CF /* SignInViewController.swift */; };
 		C699156D6A10E3C950F67C6C /* Pods_Space_Invaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED2C0D5CAF8DEF1C1E0FAEF /* Pods_Space_Invaders.framework */; };
@@ -76,7 +75,6 @@
 		3680F4E21FD19FE300613739 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		3680F4E41FD1A46000613739 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		368259D51FD8127B008F05BC /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		368259D71FD8195C008F05BC /* backgroundAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundAudio.mp3; sourceTree = "<group>"; };
 		36EE18711FE2AA45001CF0CF /* Space Invaders.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Space Invaders.entitlements"; sourceTree = "<group>"; };
 		36EE18721FE2AB99001CF0CF /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				3667E4511FCC1A2400B25C77 /* GameScene.sks */,
 				3667E4531FCC1A2400B25C77 /* Actions.sks */,
 				3667E4551FCC1A2400B25C77 /* GameScene.swift */,
-				368259D51FD8127B008F05BC /* MainMenuScene.swift */,
 				3680F4E21FD19FE300613739 /* GameOverScene.swift */,
 				3667E4571FCC1A2400B25C77 /* GameViewController.swift */,
 				36EE18721FE2AB99001CF0CF /* SignInViewController.swift */,
@@ -547,7 +544,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				368259D61FD8127B008F05BC /* MainMenuScene.swift in Sources */,
 				3667E4561FCC1A2400B25C77 /* GameScene.swift in Sources */,
 				36EE18731FE2AB99001CF0CF /* SignInViewController.swift in Sources */,
 				3667E4581FCC1A2400B25C77 /* GameViewController.swift in Sources */,
