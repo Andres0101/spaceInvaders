@@ -29,28 +29,33 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="uKO-cp-tQW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbR-Q2-Tf6" customClass="GIDSignInButton">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbR-Q2-Tf6" customClass="GIDSignInButton">
                                 <rect key="frame" x="67" y="349" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lad-Zp-8tb">
-                                <rect key="frame" x="124" y="106" width="126" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lad-Zp-8tb">
+                                <rect key="frame" x="108" y="96" width="159" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="8KZ-Nb-2ym"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invaders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qi-TH-Whf">
-                                <rect key="frame" x="106" y="145" width="162" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invaders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Qi-TH-Whf">
+                                <rect key="frame" x="81" y="144" width="212" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="xAJ-Gd-k7h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.32008928336180942" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login to play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHb-Xy-IDf">
-                                <rect key="frame" x="113" y="216" width="149" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beware the invasion" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHb-Xy-IDf">
+                                <rect key="frame" x="81" y="187" width="210" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="Gcl-ac-f2C"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -58,10 +63,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Lad-Zp-8tb" firstAttribute="leading" secondItem="Gx4-SK-LnX" secondAttribute="leading" constant="108" id="6RG-KP-ncL"/>
+                            <constraint firstItem="1Qi-TH-Whf" firstAttribute="centerX" secondItem="rbR-Q2-Tf6" secondAttribute="centerX" id="9BU-GQ-X1d"/>
                             <constraint firstItem="uKO-cp-tQW" firstAttribute="top" secondItem="JPb-w9-Dev" secondAttribute="top" id="AcM-Fk-RTQ"/>
                             <constraint firstItem="uKO-cp-tQW" firstAttribute="leading" secondItem="Gx4-SK-LnX" secondAttribute="leading" id="CC6-Wk-c0O"/>
                             <constraint firstItem="uKO-cp-tQW" firstAttribute="bottom" secondItem="Gx4-SK-LnX" secondAttribute="bottom" id="GSu-lK-Aho"/>
+                            <constraint firstItem="1Qi-TH-Whf" firstAttribute="top" secondItem="Gx4-SK-LnX" secondAttribute="top" constant="124" id="NOr-Ry-9za"/>
+                            <constraint firstItem="1Qi-TH-Whf" firstAttribute="leading" secondItem="Gx4-SK-LnX" secondAttribute="leading" constant="81" id="U8N-6U-9QB"/>
                             <constraint firstItem="uKO-cp-tQW" firstAttribute="trailing" secondItem="Gx4-SK-LnX" secondAttribute="trailing" id="XTh-9r-1Js"/>
+                            <constraint firstItem="1Qi-TH-Whf" firstAttribute="centerX" secondItem="uKO-cp-tQW" secondAttribute="centerX" id="am2-AG-h43"/>
+                            <constraint firstItem="Lad-Zp-8tb" firstAttribute="top" secondItem="Gx4-SK-LnX" secondAttribute="top" constant="76" id="gCc-e5-keh"/>
+                            <constraint firstItem="Lad-Zp-8tb" firstAttribute="centerX" secondItem="1Qi-TH-Whf" secondAttribute="centerX" id="j7R-Mm-H9d"/>
+                            <constraint firstItem="Gx4-SK-LnX" firstAttribute="trailing" secondItem="LHb-Xy-IDf" secondAttribute="trailing" constant="84" id="kOh-xo-teg"/>
+                            <constraint firstItem="rbR-Q2-Tf6" firstAttribute="leading" secondItem="Gx4-SK-LnX" secondAttribute="leading" constant="67" id="kh4-Nm-mUC"/>
+                            <constraint firstItem="LHb-Xy-IDf" firstAttribute="top" secondItem="Lad-Zp-8tb" secondAttribute="bottom" constant="29" id="kyF-RD-tLg"/>
+                            <constraint firstItem="1Qi-TH-Whf" firstAttribute="leading" secondItem="LHb-Xy-IDf" secondAttribute="leading" id="nl6-rN-BOs"/>
+                            <constraint firstItem="rbR-Q2-Tf6" firstAttribute="top" secondItem="LHb-Xy-IDf" secondAttribute="bottom" constant="99" id="ul7-sP-kaC"/>
+                            <constraint firstItem="Gx4-SK-LnX" firstAttribute="bottom" secondItem="rbR-Q2-Tf6" secondAttribute="bottom" constant="190" id="uzL-Dz-EJL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gx4-SK-LnX"/>
                     </view>
