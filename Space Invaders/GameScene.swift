@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lives = 3
     let livesText = SKLabelNode(fontNamed: "Roboto Regular")
     
+    let userNameLabel = SKLabelNode(fontNamed: "Roboto Black")
     let startLabel = SKLabelNode(fontNamed: "Roboto Black")
     
     let player = SKSpriteNode(imageNamed: "player")
@@ -121,6 +122,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let moveToScreen = SKAction.moveTo(y: self.size.height * 0.9, duration: 0.3)
         scoreText.run(moveToScreen)
         livesText.run(moveToScreen)
+        
+        //Données du joueur
+        if let currentUser = GIDSignIn.sharedInstance().currentUser {
+            //Prenom
+            userNameLabel.text = currentUser.profile.name
+            userNameLabel.fontSize = 100
+            userNameLabel.fontColor = SKColor.white
+            userNameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/3)
+            userNameLabel.zPosition = 1
+            self.addChild(userNameLabel)
+        }
         
         //Définir les propiétés du text "Tap to begin" (font family, size, position, etc...)
         startLabel.text = "TAP TO BEGIN"
