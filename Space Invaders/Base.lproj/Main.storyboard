@@ -84,7 +84,7 @@
                         <viewLayoutGuide key="safeArea" id="Gx4-SK-LnX"/>
                     </view>
                     <connections>
-                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="HomeViewSegue" id="gwt-d2-9i3"/>
+                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="HomeViewSegue" modalTransitionStyle="crossDissolve" id="gwt-d2-9i3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qv-SV-4yN" userLabel="First Responder" sceneMemberID="firstResponder"/>

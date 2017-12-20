@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
             print("User signed into Google")
-            print(user.profile.name)
             
             guard let authentication = user.authentication else { return }
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
@@ -44,16 +43,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             
             Auth.auth().signIn(with: credential) { (user, error) in
                 if let error = error {
-                    // ...
+                    print(error)
                     return
                 }
-                // User is signed in
-                print("User signed into Firebase")
                 
+                // User is signed in
                 self.databaseRef = Database.database().reference()
                 self.databaseRef.child("user").child(user!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
                     let snapshot = snapshot.value as? NSDictionary
                     if(snapshot == nil) {
+                        print("User signed into Firebase")
                         self.databaseRef.child("user").child(user!.uid).child("name").setValue(user?.displayName)
                         self.databaseRef.child("user").child(user!.uid).child("email").setValue(user?.email)
                     } else {

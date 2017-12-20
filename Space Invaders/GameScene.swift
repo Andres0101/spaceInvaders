@@ -21,7 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lives = 3
     let livesText = SKLabelNode(fontNamed: "Roboto Regular")
     
-    let userNameLabel = SKLabelNode(fontNamed: "Roboto Black")
+    let userNameLabel = SKLabelNode(fontNamed: "Roboto Regular")
     let startLabel = SKLabelNode(fontNamed: "Roboto Black")
     
     let player = SKSpriteNode(imageNamed: "player")
@@ -85,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.size = self.size
             background.anchorPoint = CGPoint(x: 0.5, y: 0)
             background.position = CGPoint(x: self.size.width/2, y: self.size.height * CGFloat(i))
-            background.zPosition = 0
+            background.zPosition = 1
             self.addChild(background)
         }
         
@@ -107,6 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         scoreText.position = CGPoint(x: self.size.width * 0.15, y: self.size.height + scoreText.frame.size.height)
         scoreText.zPosition = 20
+        scoreText.alpha = 0.5
         self.addChild(scoreText)
         
         //Définir les propiétés du text "Life" (font family, size, position, etc...)
@@ -116,6 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
         livesText.position = CGPoint(x: self.size.width * 0.85, y: self.size.height + livesText.frame.size.height)
         livesText.zPosition = 20
+        livesText.alpha = 0.5
         self.addChild(livesText)
         
         //Déplacement du score label & life label
@@ -127,19 +129,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let currentUser = GIDSignIn.sharedInstance().currentUser {
             //Prenom
             userNameLabel.text = currentUser.profile.name
-            userNameLabel.fontSize = 100
+            userNameLabel.fontSize = 60
             userNameLabel.fontColor = SKColor.white
-            userNameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/3)
-            userNameLabel.zPosition = 1
+            userNameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 150)
+            userNameLabel.zPosition = 2
             self.addChild(userNameLabel)
+            
+            //Image
+            let avatar = currentUser.profile.imageURL(withDimension: 300)
+            let theImage = UIImage(data: NSData(contentsOf: avatar!)! as Data)
+            let texture = SKTexture(image: theImage!)
+            let mySprite = SKSpriteNode(texture: texture)
+            mySprite.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 400)
+            mySprite.zPosition = 2
+            mySprite.name = "Avatar"
+            self.addChild(mySprite)
         }
         
         //Définir les propiétés du text "Tap to begin" (font family, size, position, etc...)
         startLabel.text = "TAP TO BEGIN"
         startLabel.fontSize = 100
         startLabel.fontColor = SKColor.white
-        startLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        startLabel.zPosition = 1
+        startLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/3)
+        startLabel.zPosition = 2
         startLabel.alpha = 0
         self.addChild(startLabel)
         
@@ -152,11 +164,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func startGame() {
         currentGameState = gameState.duringGame
         
+        //FadeIn transition pour "Score" & "Lives"
+        let fadeInScore = SKAction.fadeIn(withDuration: 0.3)
+        scoreText.run(fadeInScore)
+        livesText.run(fadeInScore)
+        
         //Animation pour le label "Tap to begin"
         let fadeOut = SKAction.fadeOut(withDuration: 0.5)
         let delete = SKAction.removeFromParent()
         let deleteSequence = SKAction.sequence([fadeOut, delete])
         startLabel.run(deleteSequence)
+        userNameLabel.run(deleteSequence)
+        
+        //Obtenir bullet de sa fonction
+        self.enumerateChildNodes(withName: "Avatar") {
+            avatar, stop in
+            avatar.run(deleteSequence)
+        }
         
         //Animation pour le joueur
         let moveShip = SKAction.moveTo(y: self.size.height * 0.2, duration: 0.5)
@@ -317,7 +341,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bullet.name = "Bullet"
         bullet.setScale(1)
         bullet.position = player.position
-        bullet.zPosition = 1
+        bullet.zPosition = 2
         bullet.physicsBody = SKPhysicsBody(rectangleOf: bullet.size)
         bullet.physicsBody!.affectedByGravity = false
         bullet.physicsBody!.categoryBitMask = physicsCategories.Bullet
