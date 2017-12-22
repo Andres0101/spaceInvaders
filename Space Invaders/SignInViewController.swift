@@ -11,6 +11,8 @@ import Firebase
 import GoogleSignIn
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
+    
+    var userId: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         
         // TODO(developer) Configure the sign-in button look/feel
         // ...
+        userId = Auth.auth().currentUser?.uid
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,15 +31,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        //Faire passer les coordonées userID
+        if segue.identifier == "GameScene" {
+            print("userId")
+            let controllerDestination = segue.destination as! GameScene
+            controllerDestination.userID = userId
+        }
     }
-    */
 
 }

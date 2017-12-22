@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 var score = 0
+var userScore = 0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -21,7 +22,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lives = 3
     let livesText = SKLabelNode(fontNamed: "Roboto Regular")
     
+    var userID: String!
+    
     let userNameLabel = SKLabelNode(fontNamed: "Roboto Regular")
+    let highScoreLabel = SKLabelNode(fontNamed: "Roboto Black")
     let startLabel = SKLabelNode(fontNamed: "Roboto Black")
     
     let player = SKSpriteNode(imageNamed: "player")
@@ -127,14 +131,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Données du joueur
         if let currentUser = GIDSignIn.sharedInstance().currentUser {
-            //Prenom
-            userNameLabel.text = currentUser.profile.name
-            userNameLabel.fontSize = 60
-            userNameLabel.fontColor = SKColor.white
-            userNameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 150)
-            userNameLabel.zPosition = 2
-            self.addChild(userNameLabel)
-            
             //Image
             let avatar = currentUser.profile.imageURL(withDimension: 300)
             let theImage = UIImage(data: NSData(contentsOf: avatar!)! as Data)
@@ -144,7 +140,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             mySprite.zPosition = 2
             mySprite.name = "Avatar"
             self.addChild(mySprite)
+            
+            //Prenom
+            userNameLabel.text = currentUser.profile.name
+            userNameLabel.fontSize = 60
+            userNameLabel.fontColor = SKColor.white
+            userNameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 150)
+            userNameLabel.zPosition = 2
+            self.addChild(userNameLabel)
         }
+        
+        //High score joueur
+        print("GameScene")
+        print(userID)
+//        let userId2 = GIDSignIn.sharedInstance().currentUser.profile
+//        print(userID)
+//        ref.child("user").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+////            let hScore = value?["score"] as? String ?? ""
+//            userScore = value?["score"] as? String ?? ""
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+        
+        highScoreLabel.text = "High score: \(userScore)"
+        highScoreLabel.fontSize = 55
+        highScoreLabel.fontColor = SKColor.white
+        highScoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 50)
+        highScoreLabel.zPosition = 2
+        self.addChild(highScoreLabel)
         
         //Définir les propiétés du text "Tap to begin" (font family, size, position, etc...)
         startLabel.text = "TAP TO BEGIN"

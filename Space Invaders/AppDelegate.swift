@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         print("User signed into Firebase")
                         self.databaseRef.child("user").child(user!.uid).child("name").setValue(user?.displayName)
                         self.databaseRef.child("user").child(user!.uid).child("email").setValue(user?.email)
+                        self.databaseRef.child("user").child(user!.uid).child("score").setValue(0)
                     } else {
                         self.window?.rootViewController?.performSegue(withIdentifier: "HomeViewSegue", sender: nil)
                     }
