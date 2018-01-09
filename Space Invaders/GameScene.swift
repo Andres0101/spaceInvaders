@@ -14,6 +14,10 @@ var userScore = 0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    //Variable pour accéder aux variables dans GameViewController
+    var referenceOfGameViewController : GameViewController!
+    var userID: String!
+    
     //Variables globales
     var level = 0
     
@@ -21,8 +25,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var lives = 3
     let livesText = SKLabelNode(fontNamed: "Roboto Regular")
-    
-    var userID: String!
     
     let userNameLabel = SKLabelNode(fontNamed: "Roboto Regular")
     let highScoreLabel = SKLabelNode(fontNamed: "Roboto Black")
@@ -73,6 +75,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //===================================== Fonction initial ====================================
     override func didMove(to view: SKView) {
+        userID = referenceOfGameViewController.userId
+        
         self.physicsWorld.contactDelegate = self
         score = 0
         
@@ -150,21 +154,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(userNameLabel)
         }
         
-        //High score joueur
-        print("GameScene")
-        print(userID)
-//        let userId2 = GIDSignIn.sharedInstance().currentUser.profile
-//        print(userID)
-//        ref.child("user").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-////            let hScore = value?["score"] as? String ?? ""
-//            userScore = value?["score"] as? String ?? ""
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
+        //Chercher dans la BDD le High score du joueur
+        referenceOfGameViewController.databaseRef.child("user").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Obtenir les valeurs du joueur
+            let value = snapshot.value as? NSDictionary
+            let highScore = value?["score"] as? Int ?? 0
+            userScore = highScore
+            
+            self.highScoreLabel.text = "High score: \(userScore)"
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
-        highScoreLabel.text = "High score: \(userScore)"
         highScoreLabel.fontSize = 55
         highScoreLabel.fontColor = SKColor.white
         highScoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 50)

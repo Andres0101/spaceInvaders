@@ -10,16 +10,25 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import AVFoundation
+import Firebase
+import GoogleSignIn
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GIDSignInUIDelegate {
     
+    let delegate = UIApplication.shared.delegate as! AppDelegate
     var backgroundAudio = AVAudioPlayer()
+    
+    var userId: String!
+    var databaseRef: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let filePath = Bundle.main.path(forResource: "backgroundAudio", ofType: "mp3")
         let audioURL = URL(fileURLWithPath: filePath!)
+        
+        userId = Auth.auth().currentUser?.uid
+        databaseRef = delegate.databaseRef
         
         //Assurer que l'audio existe
         do {
@@ -35,6 +44,8 @@ class GameViewController: UIViewController {
             let scene = GameScene(size: CGSize(width: 1536, height: 2048))
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
+            
+            scene.referenceOfGameViewController = self
             
             // Present the scene
             view.presentScene(scene)
