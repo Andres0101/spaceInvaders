@@ -12,6 +12,7 @@ import SpriteKit
 class GameOverScene: SKScene {
     
     let restartText = SKLabelNode(fontNamed: "Roboto Regular")
+    var userHighScore: Int!
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "backgroundEarth")
@@ -37,17 +38,13 @@ class GameOverScene: SKScene {
         scoreText.zPosition = 1
         self.addChild(scoreText)
         
-        let defaults = UserDefaults()
-        var highScore = defaults.integer(forKey: "highScoreSaved")
-        
-        if  score > highScore {
-            highScore = score
-            defaults.set(highScore, forKey: "highScoreSaved")
+        if  score > userHighScore {
+            userHighScore = score
         }
         
         //Label "High score"
         let highScoreText = SKLabelNode(fontNamed: "Roboto Medium")
-        highScoreText.text = "High score: \(highScore)"
+        highScoreText.text = "High score: " + String(userHighScore)
         highScoreText.fontSize = 90
         highScoreText.fontColor = SKColor.white
         highScoreText.position = CGPoint(x: self.size.width/2, y: self.size.height * 0.45)

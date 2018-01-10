@@ -298,6 +298,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func changeScene() {
         let newScene = GameOverScene(size: self.size)
         newScene.scaleMode = self.scaleMode
+        
+        // Envoyer highScore du joueur à GameOverScene
+        newScene.userHighScore = userScore
+        
         let transition = SKTransition.fade(withDuration: 0.5)
         
         self.view!.presentScene(newScene, transition: transition)
