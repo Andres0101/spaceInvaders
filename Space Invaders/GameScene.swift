@@ -100,7 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Définir les propriétés du joueur (position, catégorie, collision, contact, etc ...)
         player.setScale(1)
         player.position = CGPoint(x: self.size.width/2, y: 0 - self.size.height)
-        player.zPosition = 2
+        player.zPosition = 3
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody!.affectedByGravity = false
         player.physicsBody!.categoryBitMask = physicsCategories.Player
@@ -141,7 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let texture = SKTexture(image: theImage!)
             let mySprite = SKSpriteNode(texture: texture)
             mySprite.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 400)
-            mySprite.zPosition = 2
+            mySprite.zPosition = 3
             mySprite.name = "Avatar"
             self.addChild(mySprite)
             
@@ -150,7 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             userNameLabel.fontSize = 60
             userNameLabel.fontColor = SKColor.white
             userNameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 150)
-            userNameLabel.zPosition = 2
+            userNameLabel.zPosition = 3
             self.addChild(userNameLabel)
         }
         
@@ -169,7 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         highScoreLabel.fontSize = 55
         highScoreLabel.fontColor = SKColor.white
         highScoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 50)
-        highScoreLabel.zPosition = 2
+        highScoreLabel.zPosition = 3
         self.addChild(highScoreLabel)
         
         //Définir les propiétés du text "Tap to begin" (font family, size, position, etc...)
@@ -177,7 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         startLabel.fontSize = 100
         startLabel.fontColor = SKColor.white
         startLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/3)
-        startLabel.zPosition = 2
+        startLabel.zPosition = 3
         startLabel.alpha = 0
         self.addChild(startLabel)
         
@@ -201,8 +201,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let deleteSequence = SKAction.sequence([fadeOut, delete])
         startLabel.run(deleteSequence)
         userNameLabel.run(deleteSequence)
+        highScoreLabel.run(deleteSequence)
         
-        //Obtenir bullet de sa fonction
+        //Obtenir avatar
         self.enumerateChildNodes(withName: "Avatar") {
             avatar, stop in
             avatar.run(deleteSequence)
@@ -348,7 +349,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func showExplotion(position: CGPoint) {
         let explosion = SKSpriteNode(imageNamed: "explosion")
         explosion.position = position
-        explosion.zPosition = 3
+        explosion.zPosition = 4
         explosion.setScale(0)
         self.addChild(explosion)
         
@@ -395,7 +396,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.name = "Enemy"
         enemy.setScale(1)
         enemy.position = startPoint
-        enemy.zPosition = 2
+        enemy.zPosition = 3
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
         enemy.physicsBody!.affectedByGravity = false
         enemy.physicsBody!.categoryBitMask = physicsCategories.Enemy
