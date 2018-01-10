@@ -15,7 +15,7 @@ var userScore = 0
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //Variable pour accéder aux variables dans GameViewController
-    var referenceOfGameViewController : GameViewController!
+    var referenceOfGameViewController: GameViewController!
     var userID: String!
     
     //Variables globales
@@ -301,6 +301,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Envoyer highScore du joueur à GameOverScene
         newScene.userHighScore = userScore
+        newScene.userID = userID
         
         let transition = SKTransition.fade(withDuration: 0.5)
         

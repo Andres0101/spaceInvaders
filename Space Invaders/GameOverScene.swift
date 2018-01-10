@@ -8,10 +8,13 @@
 
 import Foundation
 import SpriteKit
+import Firebase
 
 class GameOverScene: SKScene {
     
+    var databaseRef: DatabaseReference!
     let restartText = SKLabelNode(fontNamed: "Roboto Regular")
+    var userID: String!
     var userHighScore: Int!
     
     override func didMove(to view: SKView) {
@@ -38,8 +41,14 @@ class GameOverScene: SKScene {
         scoreText.zPosition = 1
         self.addChild(scoreText)
         
+        // Si le score est plus grand que le hightScore que l'utilisateur avait ...
         if  score > userHighScore {
             userHighScore = score
+            
+            // On met à jour le nouveau hightScore dans la BDD
+            databaseRef = Database.database().reference()
+            let ref = databaseRef.child("user").child(userID)
+            ref.updateChildValues(["score": score])
         }
         
         //Label "High score"
