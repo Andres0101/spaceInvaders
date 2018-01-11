@@ -16,45 +16,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
     var databaseRef: DatabaseReference!
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         
+        // Définir clienId sur l'utilisateur qui tente de se connecter
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        // Définir lui même en tant que délégué
         GIDSignIn.sharedInstance().delegate = self
         
         return true
     }
     
+    // Cette fonction permet de gérer l'URL que l'application reçoit à la fin du processus d'authentification
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url,                                                 sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                  annotation: [:])
     }
     
+    // Cette fonction permet de se connecter à Google
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        // Valider qu'il n'y a pas d'erreur
         if (error == nil) {
-            print("User signed into Google")
-            
             guard let authentication = user.authentication else { return }
+            // Obtenir les credentials d'authentification de Google
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
             
+            // Valider que l'utilisateur fait la connection avec le credentials
             Auth.auth().signIn(with: credential) { (user, error) in
                 if let error = error {
                     print(error)
                     return
                 }
                 
-                // User is signed in
+                // L'utilisateur est connecté
                 self.databaseRef = Database.database().reference()
+                // Consulter l'id de l'utilisateur qui vient de se connecter
                 self.databaseRef.child("user").child(user!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
                     let snapshot = snapshot.value as? NSDictionary
+                    // Si l'utilisateur n'existe pas dans la BDD alors on l'ajoute
                     if(snapshot == nil) {
-                        print("User signed into Firebase")
+                        // Champ pour le nom
                         self.databaseRef.child("user").child(user!.uid).child("name").setValue(user?.displayName)
+                        // Champ pour le mail
                         self.databaseRef.child("user").child(user!.uid).child("email").setValue(user?.email)
+                        // Champ pour le score
                         self.databaseRef.child("user").child(user!.uid).child("score").setValue(0)
                     } else {
                         self.window?.rootViewController?.performSegue(withIdentifier: "HomeViewSegue", sender: nil)
@@ -66,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
+    // Cette fonction permet de se déconnecter de Google
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
