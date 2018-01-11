@@ -10,6 +10,7 @@
 		020D6AEB0B48750A18DC5E71 /* Pods_Space_InvadersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E02BF3535C62F71A23FF420 /* Pods_Space_InvadersTests.framework */; };
 		2A3951FD361F3B7053DDD199 /* Pods_Space_InvadersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BE2E2F89842633C8F36295 /* Pods_Space_InvadersUITests.framework */; };
 		361987431FE2A9B0000B44A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 361987421FE2A9B0000B44A3 /* GoogleService-Info.plist */; };
+		3634C024200799AB000DE61A /* OCR A Extended Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3634C023200799AB000DE61A /* OCR A Extended Regular.ttf */; };
 		3667E4501FCC1A2400B25C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */; };
 		3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4511FCC1A2400B25C77 /* GameScene.sks */; };
 		3667E4541FCC1A2400B25C77 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3667E4531FCC1A2400B25C77 /* Actions.sks */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		1ED2C0D5CAF8DEF1C1E0FAEF /* Pods_Space_Invaders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Invaders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		361987421FE2A9B0000B44A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3634C023200799AB000DE61A /* OCR A Extended Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR A Extended Regular.ttf"; sourceTree = "<group>"; };
 		3667E44C1FCC1A2400B25C77 /* Space Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Invaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3667E44F1FCC1A2400B25C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3667E4511FCC1A2400B25C77 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		3680F4E01FD17D1400613739 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3634C023200799AB000DE61A /* OCR A Extended Regular.ttf */,
 				3680F4E61FD1A90F00613739 /* Roboto-Medium.ttf */,
 				3680F4E41FD1A46000613739 /* Roboto-Black.ttf */,
 				3680F4DD1FD17D0F00613739 /* Roboto-Regular.ttf */,
@@ -348,6 +351,7 @@
 			files = (
 				361987431FE2A9B0000B44A3 /* GoogleService-Info.plist in Resources */,
 				3680F4DE1FD17D1000613739 /* Roboto-Thin.ttf in Resources */,
+				3634C024200799AB000DE61A /* OCR A Extended Regular.ttf in Resources */,
 				3667E45B1FCC1A2400B25C77 /* Main.storyboard in Resources */,
 				3667E4521FCC1A2400B25C77 /* GameScene.sks in Resources */,
 				368259D81FD8195C008F05BC /* backgroundAudio.mp3 in Resources */,

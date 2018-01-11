@@ -37,6 +37,7 @@
 		<string>Roboto-Black.ttf</string>
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-Regular.ttf</string>
+		<string>OCR A Extended Regular</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

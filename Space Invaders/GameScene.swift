@@ -27,8 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let livesText = SKLabelNode(fontNamed: "Roboto Regular")
     
     let userNameLabel = SKLabelNode(fontNamed: "Roboto Regular")
-    let highScoreLabel = SKLabelNode(fontNamed: "Roboto Black")
-    let startLabel = SKLabelNode(fontNamed: "Roboto Black")
+    let highScoreLabel = SKLabelNode(fontNamed: "Roboto Regular")
+    let startLabel = SKLabelNode(fontNamed: "Roboto Medium")
     
     let player = SKSpriteNode(imageNamed: "player")
     let shootSound = SKAction.playSoundFileNamed("shoot.wav", waitForCompletion: false)
@@ -110,20 +110,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Définir les propiétés du text "Score" (font family, size, position, etc...)
         scoreText.text = "Score: 0"
-        scoreText.fontSize = 70
+        scoreText.fontSize = 55
         scoreText.fontColor = SKColor.white
         scoreText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
-        scoreText.position = CGPoint(x: self.size.width * 0.15, y: self.size.height + scoreText.frame.size.height)
+        scoreText.position = CGPoint(x: self.size.width * 0.20, y: self.size.height + scoreText.frame.size.height)
         scoreText.zPosition = 20
         scoreText.alpha = 0.5
         self.addChild(scoreText)
         
         //Définir les propiétés du text "Life" (font family, size, position, etc...)
         livesText.text = "Lives: 3"
-        livesText.fontSize = 70
+        livesText.fontSize = 55
         livesText.fontColor = SKColor.white
         livesText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
-        livesText.position = CGPoint(x: self.size.width * 0.85, y: self.size.height + livesText.frame.size.height)
+        livesText.position = CGPoint(x: self.size.width * 0.80, y: self.size.height + livesText.frame.size.height)
         livesText.zPosition = 20
         livesText.alpha = 0.5
         self.addChild(livesText)
@@ -166,7 +166,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print(error.localizedDescription)
         }
         
-        highScoreLabel.fontSize = 55
+        highScoreLabel.fontSize = 60
         highScoreLabel.fontColor = SKColor.white
         highScoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2 + 50)
         highScoreLabel.zPosition = 3
@@ -174,9 +174,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Définir les propiétés du text "Tap to begin" (font family, size, position, etc...)
         startLabel.text = "TAP TO BEGIN"
-        startLabel.fontSize = 100
+        startLabel.fontSize = 70
         startLabel.fontColor = SKColor.white
-        startLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/3)
+        startLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/4)
         startLabel.zPosition = 3
         startLabel.alpha = 0
         self.addChild(startLabel)
