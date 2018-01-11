@@ -14,6 +14,7 @@ class GameOverScene: SKScene {
     
     var databaseRef: DatabaseReference!
     let restartText = SKLabelNode(fontNamed: "Roboto Medium")
+    let signOutText = SKLabelNode(fontNamed: "Roboto Medium")
     var userID: String!
     var userHighScore: Int!
     
@@ -23,7 +24,7 @@ class GameOverScene: SKScene {
         background.zPosition = 0
         self.addChild(background)
         
-        //Label "Game Over"
+        // Label "Game Over"
         let gameOverText = SKLabelNode(fontNamed: "Roboto Black")
         gameOverText.text = "Game Over"
         gameOverText.fontSize = 110
@@ -32,7 +33,7 @@ class GameOverScene: SKScene {
         gameOverText.zPosition = 1
         self.addChild(gameOverText)
         
-        //Label "Score"
+        // Label "Score"
         let scoreText = SKLabelNode(fontNamed: "Roboto Regular")
         scoreText.text = "Score: \(score)"
         scoreText.fontSize = 70
@@ -51,7 +52,7 @@ class GameOverScene: SKScene {
             ref.updateChildValues(["score": score])
         }
         
-        //Label "High score"
+        // Label "High score"
         let highScoreText = SKLabelNode(fontNamed: "Roboto Regular")
         highScoreText.text = "High score: " + String(userHighScore)
         highScoreText.fontSize = 70
@@ -60,26 +61,42 @@ class GameOverScene: SKScene {
         highScoreText.zPosition = 1
         self.addChild(highScoreText)
         
-        //Label "Restart"
+        // Label "Restart"
         restartText.text = "Restart"
         restartText.fontSize = 90
         restartText.fontColor = SKColor.white
         restartText.position = CGPoint(x: self.size.width/2, y: self.size.height/4)
         restartText.zPosition = 1
         self.addChild(restartText)
+        
+        // Label "Sign Out"
+        signOutText.text = "Sign Out"
+        signOutText.fontSize = 60
+        signOutText.fontColor = SKColor.white
+        signOutText.position = CGPoint(x: self.size.width/2, y: self.size.height/6)
+        signOutText.zPosition = 1
+        signOutText.alpha = 0.5
+        self.addChild(signOutText)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
             let currentTouch = touch.location(in: self)
             
-            //Retour à gameScene
+            // Valider si l'utilisateur a poussé sur le bouton "restart"
             if  restartText.contains(currentTouch) {
+                // Retour à GameScene
                 let changeTo = GameScene(size: self.size)
                 changeTo.scaleMode = self.scaleMode
                 let transition = SKTransition.fade(withDuration: 0.5)
                 
                 self.view!.presentScene(changeTo, transition: transition)
+            }
+            
+            // Valider si l'utilisateur a poussé sur le bouton "signOut"
+            if  signOutText.contains(currentTouch) {
+                // Cette action permet d'appeler la fonction signOut de l'AppDelegate
+                GIDSignIn.sharedInstance().signOut()
             }
         }
     }

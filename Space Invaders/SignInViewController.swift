@@ -32,7 +32,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     
     // Action qui est appellé quand on pousse sur le bouton Google
     @IBAction func googleSignin(_ sender: Any) {
-        // Cette action permet d'appeler la fonction signIn qui dans l'AppDelegate
+        // Cette action permet d'appeler la fonction signIn de l'AppDelegate
         GIDSignIn.sharedInstance().signIn()
     }
     
