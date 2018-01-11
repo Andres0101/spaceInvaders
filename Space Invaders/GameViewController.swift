@@ -15,10 +15,14 @@ import GoogleSignIn
 
 class GameViewController: UIViewController, GIDSignInUIDelegate {
     
+    // Variable pour pouvoir accéder aux variables dans l'AppDelegate
     let delegate = UIApplication.shared.delegate as! AppDelegate
+    // Variable pour le son de l'appli
     var backgroundAudio = AVAudioPlayer()
     
+    // Variable pour stocker l'id de l'utilisateur
     var userId: String!
+    // Variable de la référence de la BDD
     var databaseRef: DatabaseReference!
 
     override func viewDidLoad() {
@@ -41,10 +45,12 @@ class GameViewController: UIViewController, GIDSignInUIDelegate {
         backgroundAudio.play()
         
         if let view = self.view as! SKView? {
+            // Passer à GameScene
             let scene = GameScene(size: CGSize(width: 1536, height: 2048))
-            // Set the scale mode to scale to fit the window
+            // Réglez le mode échelle pour l'adapter à la fenêtre
             scene.scaleMode = .aspectFill
             
+            // Permet d'accéder aux variable dans le GameViewController depuis GameScene
             scene.referenceOfGameViewController = self
             
             // Present the scene
