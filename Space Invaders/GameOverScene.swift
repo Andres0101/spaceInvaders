@@ -19,6 +19,7 @@ class GameOverScene: SKScene {
     var userHighScore: Int!
     
     override func didMove(to view: SKView) {
+        // Gérer l'image background
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
@@ -88,7 +89,7 @@ class GameOverScene: SKScene {
                 // Retour à GameScene
                 let changeTo = GameScene(size: self.size)
                 changeTo.scaleMode = self.scaleMode
-                let transition = SKTransition.fade(withDuration: 0.5)
+                let transition = SKTransition.fade(withDuration: 0.5) // Transition fade pour changer la scène
                 
                 self.view!.presentScene(changeTo, transition: transition)
             }
